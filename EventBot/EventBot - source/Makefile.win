@@ -1,0 +1,46 @@
+# Project: Projekt1
+# Compiler: Default GCC compiler
+# Compiler Type: MingW 3
+# Makefile created by wxDev-C++ 7.3 on 03-12-14 14:26
+
+WXLIBNAME = wxmsw28
+CPP       = g++.exe
+CC        = gcc.exe
+WINDRES   = "windres.exe"
+OBJ       = Objects/MingW/EventBotApp.o Objects/MingW/EventBotFrm.o Objects/MingW/MyTaskBar.o Objects/MingW/MyMessageDlg.o Objects/MingW/EventBot_private.res
+LINKOBJ   = "Objects/MingW/EventBotApp.o" "Objects/MingW/EventBotFrm.o" "Objects/MingW/MyTaskBar.o" "Objects/MingW/MyMessageDlg.o" Objects/MingW/EventBot_private.res
+LIBS      = -L"E:/C++/Dev-Cpp/Lib" -mwindows -l$(WXLIBNAME) -l$(WXLIBNAME)_gl -lwxtiff -lwxjpeg -lwxpng -lwxzlib -lwxregex -lwxexpat -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lwsock32 -lodbc32 -lopengl32  
+INCS      = -I"E:/C++/Dev-Cpp/Include"
+CXXINCS   = -I"E:/C++/Dev-Cpp/lib/gcc/mingw32/3.4.5/include" -I"E:/C++/Dev-Cpp/include/c++/3.4.5/backward" -I"E:/C++/Dev-Cpp/include/c++/3.4.5/mingw32" -I"E:/C++/Dev-Cpp/include/c++/3.4.5" -I"E:/C++/Dev-Cpp/include" -I"E:/C++/Dev-Cpp/" -I"E:/C++/Dev-Cpp/include/3rdparty/wx/plotctrl" -I"E:/C++/Dev-Cpp/include/3rdparty/wx/sheet" -I"E:/C++/Dev-Cpp/include/3rdparty/wx/treemultictrl" -I"E:/C++/Dev-Cpp/include/3rdparty/wx/things" -I"E:/C++/Dev-Cpp/include/3rdparty/wx" -I"E:/C++/Dev-Cpp/include/3rdparty" -I"E:/C++/Dev-Cpp/include/common/wx/msw" -I"E:/C++/Dev-Cpp/include/common/wx/generic" -I"E:/C++/Dev-Cpp/include/common/wx/fl" -I"E:/C++/Dev-Cpp/include/common/wx/gizmos" -I"E:/C++/Dev-Cpp/include/common/wx/html" -I"E:/C++/Dev-Cpp/include/common/wx/mmedia" -I"E:/C++/Dev-Cpp/include/common/wx/net" -I"E:/C++/Dev-Cpp/include/common/wx/ogl" -I"E:/C++/Dev-Cpp/include/common/wx/plot" -I"E:/C++/Dev-Cpp/include/common/wx/protocol" -I"E:/C++/Dev-Cpp/include/common/wx/stc" -I"E:/C++/Dev-Cpp/include/common/wx/svg" -I"E:/C++/Dev-Cpp/include/common/wx/xml" -I"E:/C++/Dev-Cpp/include/common/wx/xrc" -I"E:/C++/Dev-Cpp/include/common/wx" -I"E:/C++/Dev-Cpp/include/common"
+RCINCS    = --include-dir "E:/C__~1/Dev-Cpp/include/common"
+BIN       = Output/MingW/EventBot.exe
+DEFINES   = -D__WXMSW__ -D__GNUWIN32__ -D__WIN95__
+CXXFLAGS  = $(CXXINCS) $(DEFINES) -fno-exceptions -fno-pcc-struct-return -fstrict-aliasing -Wall -D__WXMSW__ -D__GNUWIN32__ -D__WIN95__   -fexpensive-optimizations -O3
+CFLAGS    = $(INCS) $(DEFINES) -fno-exceptions -fno-pcc-struct-return -fstrict-aliasing -Wall -D__WXMSW__ -D__GNUWIN32__ -D__WIN95__   -fexpensive-optimizations -O3
+GPROF     = gprof.exe
+RM        = rm -f
+LINK      = g++.exe
+
+.PHONY: all all-before all-after clean clean-custom
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	$(RM) $(LINKOBJ) "$(BIN)"
+
+$(BIN): $(OBJ)
+	$(LINK) $(LINKOBJ) -o "$(BIN)" $(LIBS) 
+
+Objects/MingW/EventBotApp.o: $(GLOBALDEPS) EventBotApp.cpp EventBotApp.h EventBotFrm.h
+	$(CPP) -c EventBotApp.cpp -o Objects/MingW/EventBotApp.o $(CXXFLAGS)
+
+Objects/MingW/EventBotFrm.o: $(GLOBALDEPS) EventBotFrm.cpp EventBotFrm.h MyTaskBar.h EventBotFrm.h MyMessageDlg.h Images/Self_EventBotFrm_XPM.xpm
+	$(CPP) -c EventBotFrm.cpp -o Objects/MingW/EventBotFrm.o $(CXXFLAGS)
+
+Objects/MingW/MyTaskBar.o: $(GLOBALDEPS) MyTaskBar.cpp MyTaskBar.h EventBotFrm.h
+	$(CPP) -c MyTaskBar.cpp -o Objects/MingW/MyTaskBar.o $(CXXFLAGS)
+
+Objects/MingW/MyMessageDlg.o: $(GLOBALDEPS) MyMessageDlg.cpp MyMessageDlg.h EventBotFrm.h
+	$(CPP) -c MyMessageDlg.cpp -o Objects/MingW/MyMessageDlg.o $(CXXFLAGS)
+
+Objects/MingW/EventBot_private.res: Objects/MingW/EventBot_private.rc EventBotApp.rc 
+	$(WINDRES) --input-format=rc -o Objects/MingW/EventBot_private.res $(RCINCS) Objects/MingW/EVENTB~1.RC -O coff
